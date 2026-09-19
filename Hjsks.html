@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absensi Sekolah</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Absensi Sekolah</h1>
+
+      <div id="authView">
+        <div class="mode-switch">
+          <button class="mode-btn active" data-mode="student">Mode Siswa</button>
+          <button class="mode-btn" data-mode="operator">Mode Operator</button>
+        </div>
+
+        <div id="studentLoginCard" class="card active">
+          <h2>Login Siswa</h2>
+          <form id="studentLoginForm">
+            <label>Username</label>
+            <input type="text" id="studentUsername" required />
+
+            <label>Password</label>
+            <input type="password" id="studentPassword" required />
+
+            <button type="submit">Login Siswa</button>
+          </form>
+          <div id="studentLoginMessage" class="message"></div>
+        </div>
+
+        <div id="operatorLoginCard" class="card hidden">
+          <h2>Login Operator</h2>
+          <form id="operatorLoginForm">
+            <label>Username</label>
+            <input type="text" id="operatorUsername" required />
+
+            <label>Password</label>
+            <input type="password" id="operatorPassword" required />
+
+            <button type="submit">Login Operator</button>
+          </form>
+          <div id="operatorLoginMessage" class="message"></div>
+        </div>
+      </div>
+
+      <div id="studentDashboard" class="dashboard hidden">
+        <div class="topbar">
+          <h2>Dashboard Siswa</h2>
+          <button id="studentLogoutBtn" class="logout-btn">Logout</button>
+        </div>
+
+        <div id="studentProfile" class="profile-box"></div>
+
+        <button id="studentAttendanceBtn" class="primary-btn">
+          Absen Hari Ini
+        </button>
+
+        <div id="studentAttendanceMessage" class="message"></div>
+      </div>
+
+      <div id="operatorDashboard" class="dashboard hidden">
+        <div class="topbar">
+          <h2>Dashboard Operator</h2>
+          <button id="operatorLogoutBtn" class="logout-btn">Logout</button>
+        </div>
+
+        <form id="addStudentForm" class="form-grid">
+          <h3>Daftar Siswa</h3>
+
+          <label>Nama</label>
+          <input type="text" id="studentName" required />
+
+          <label>Username</label>
+          <input type="text" id="studentUsernameRegister" required />
+
+          <label>Password</label>
+          <input type="password" id="studentPasswordRegister" required />
+
+          <label>Kelas</label>
+          <input type="text" id="studentClass" placeholder="Contoh: X-1" required />
+
+          <label>Jurusan</label>
+          <input type="text" id="studentJurusan" placeholder="Contoh: RPL" required />
+
+          <button type="submit">Tambah Siswa</button>
+        </form>
+
+        <div id="studentRegisterMessage" class="message"></div>
+
+        <div class="report-box">
+          <h3>Filter Absensi</h3>
+          <form id="attendanceFilterForm" class="filter-form">
+            <label>Kelas</label>
+            <input type="text" id="filterClass" placeholder="Semua kelas" />
+
+            <label>Jurusan</label>
+            <input type="text" id="filterJurusan" placeholder="Semua jurusan" />
+
+            <button type="submit">Tampilkan</button>
+          </form>
+        </div>
+
+        <div class="table-wrap">
+          <h3>Daftar Siswa</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Kelas</th>
+                <th>Jurusan</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <h3>Data Absensi</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Jurusan</th>
+                <th>Tanggal</th>
+                <th>Waktu</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+            </html>
